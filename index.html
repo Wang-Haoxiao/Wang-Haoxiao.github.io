@@ -2,12 +2,57 @@
 <html lang="en">
 
 
-<head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<head>
+  <script>
+    (function () {
+        var a_idx = 0;
+        window.onclick = function (event) {
+            var a = new Array("✨", "🤖", "🥳", "👋", "🦾", "🐽");
+
+            var heart = document.createElement("b");
+            heart.onselectstart = new Function('event.returnValue=false');
+
+            document.body.appendChild(heart).innerHTML = a[a_idx];
+            a_idx = (a_idx + 1) % a.length;
+            heart.style.cssText = "position: fixed;left:-100%;";
+
+            var f = 16, 
+                x = event.clientX - f / 2, 
+                y = event.clientY - f,
+                c = randomColor(), 
+                a = 1,
+                s = 1.2; 
+
+            var timer = setInterval(function () { 
+                if (a <= 0) {
+                    document.body.removeChild(heart);
+                    clearInterval(timer);
+                } else {
+                    heart.style.cssText = "font-size:16px;cursor: default;position: fixed;color:" +
+                        c + ";left:" + x + "px;top:" + y + "px;opacity:" + a + ";transform:scale(" +
+                        s + ");";
+
+                    y--;
+                    a -= 0.016;
+                    s += 0.002;
+                }
+            }, 15)
+
+        }
+        function randomColor() {
+
+            return "rgb(" + (~~(Math.random() * 255)) + "," + (~~(Math.random() * 255)) + "," + (~~(Math
+            .random() * 255)) + ")";
+
+        }
+    }());
+  </script>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>Haoxiao Wang   |  王皓枭</title>
   <meta name="author" content="Haoxiao Wang">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="stylesheet.css">
-	<link rel="icon" type="image/png" href="./images/icon/icon.jpg">
+	<link rel="icon" type="image/png" href="./images/icon.png">
   <script>
     var _hmt = _hmt || [];
     (function() {
@@ -29,16 +74,17 @@
                 <name>Haoxiao Wang &nbsp | &nbsp 王皓枭</name>
               </p>
               <p>
-              I am a sophomore undergraduate student in the <a href="https://cs.tjut.edu.cn/" target="_blank">School of Computer Science and Engineering</a>, <a href="https://www.tjut.edu.cn/" target="_blank">Tianjin University of Technology</a> with gpa ranking <strong>1</strong>/576.
-              I'm also a research intern at <a href="https://cfcs.pku.edu.cn/" target="_blank">Center on Frontiers of Computing Studies(CFCS)</a>, <a href="https://english.pku.edu.cn/" target="_blank">Peking University</a>.
-              I am honored to be co-advised by Prof. <a href="https://scholar.google.com/citations?hl=zh-CN&user=JWVYDzAAAAAJ" target="_blank">Jianhua Zhang</a> 
-              and Prof. <a href="" target="_blank">Xu Cheng</a>.   
+              I am a incoming M.S. student at <a href="https://www.zju.edu.cn/" target="_blank">Zhejiang University</a>,
+              advised by Prof. <a href="https://person.zju.edu.cn/zhaozhou#:~:text=%E8%B5%B5%E6%B4%B2.%20%E5%8D%9A%E5%A3%AB%20|%20%E6%95%99">Zhou Zhao</a>.
+              Now, I am a senior undergraduate student in the
+              <a href="https://www.zju.edu.cn/" target="_blank">School of Computer Science and Engineering</a>, <a href="https://www.tjut.edu.cn/" target="_blank">Tianjin University of Technology</a> with gpa ranking <strong>1</strong>/576.
+              Previosly, I'm also a research intern at <a href="https://cfcs.pku.edu.cn/" target="_blank">Center on Frontiers of Computing Studies(CFCS)</a>, <a href="https://english.pku.edu.cn/" target="_blank">Peking University</a>.
               <!-- In addition, I am privileged to work closely with Prof. <a href="https://hughw19.github.io/" target="_blank">He Wang</a> and <a href="https://siyuanhuang.com/" target="_blank">Siyuan Huang</a>. 
               I am currently a visiting researcher at <a href="https://www.mit.edu/" target="_blank">MIT</a>, advised by Prof. <a href="https://web.mit.edu/cocosci/josh.html">Josh Tenenbaum</a> and Prof. <a href="https://people.csail.mit.edu/ganchuang/">Chuang Gan</a>. -->
             </p>
               <p style="text-align:center">
                 <a href="mailto:chwhx@stud.tjut.edu.cn">Email</a> &nbsp/&nbsp
-                <!-- <a href="https://www.semanticscholar.org/author/Yiran-Geng/2067506505">Semantic Scholar</a> &nbsp/&nbsp -->
+                <a href="https://scholar.google.com/citations?user=J8Fe7_4AAAAJ&hl=zh-CN&oi=ao">Google Scholar</a> &nbsp/&nbsp
                 <!-- <a href="https://github.com/GengYiran/">Github</a>&nbsp/&nbsp -->
                 <!-- <a href="https://twitter.com/geng_yiran/">Twitter</a>&nbsp/&nbsp -->
                 <a href="images/wechat.png">WeChat</a>
@@ -47,7 +93,11 @@
             </td>
             <td style="padding:2.5%;width:40%;max-width:40%">
               <a href="./images/face-PicPicAI-enhanced.jpg"><img style="width:85%;max-width:85%" alt="profile photo" src="./images/face-PicPicAI-enhanced.jpg"></a>
-              <!-- <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgengyiran.github.io&count_bg=%23E79717E9&title_bg=%23575454&icon=&icon_color=%23222121&title=hits&edge_flat=true"/></a> -->
+              <a href="https://hits.seeyoufarm.com" target="_blank">
+                <img 
+                src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fwang-haoxiao.github.io&count_bg=%23F79D0B&title_bg=%23555555&icon=react.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false"
+                  style="display: block; margin-left: auto; margin-right: auto; width: 45%;"/>
+              </a>
               <!-- <a href="https://hits.seeyoufarm.com"><img src="https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgengyiran.github.io&count_bg=%23E79717E9&title_bg=%23575454&icon=&icon_color=%23222121&title=visits&edge_flat=true"/></a> -->
             </td>
           </tr>
@@ -81,6 +131,54 @@
           
           <heading>Publications</heading>
         
+        <!-- TransDiff --> 
+        <tr>
+          <td style="padding:20px;width:30%;vertical-align:middle">
+            <div class="one">
+              <div class="two" id='malle_image'>
+                <br>
+                <img src='images/transdiff_pipeline.jpg' width="190"></div>
+                <br>
+              <img src='images/transdiff_pipeline.jpg' width="190">
+            </div>
+            <script type="text/javascript">
+              function malle_start() {
+                document.getElementById('malle_image').style.opacity = "1";
+              }
+
+              function malle_stop() {
+                document.getElementById('malle_image').style.opacity = "0";
+              }
+              malle_stop()
+            </script>
+          </td>
+          <td style="padding:20px;width:70%;vertical-align:middle">
+            <a href="">
+              <papertitle>TransDiff: Diffusion-Based Method for Manipulating Transparent Objects Using a Single RGB-D Image</papertitle>
+            </a>
+            <br>
+            <a:focus><strong>Haoxiao Wang</strong></a:focus>*,
+            <a:focus>Kaichen Zhou</a:focus>*,
+            <a:focus>Binrui Gu</a:focus>,
+            <a:focus>Zhiyuan Feng</a:focus>,
+            <a class="a2" href="https://lhmd.top/" target="_blank">Weijie Wang</a>,
+            <a:focus>Peilin Sun</a:focus>,
+            <a:focus>Yicheng Xiao</a:focus>,
+            <a:focus>Jianhua Zhang</a:focus>,
+            <a class="a2" href="https://zsdonghao.github.io/" target="_blank">Hao Dong</a><span>&#8224;</span>,
+            <br>
+            <a href="" target="_blank">Paper</a>
+            /
+            <a href="" target="_blank">Code</a>
+            <br>
+            <em><strong>Under Review</strong></em>
+            <p></p>
+            <!-- <p>
+              We introduce ReDMan, an open-source simulation platform that provides a standardized implementation of safe RL algorithms for Reliable Dexterous Manipulation. 
+            </p> -->
+          </td>
+        </tr>
+
         <!-- RGBGrasp --> 
         <tr>
           <td style="padding:20px;width:30%;vertical-align:middle">
@@ -238,16 +336,15 @@
             </td>
           </tr> -->
           <tr>
-              <br>
-              <td style="padding-left:20px;padding-right:20px;width:20%;vertical-align:middle"><img src="images/ZJU.png", width="100"></td>
-              <td width="90%" valign="center">
-                <strong>College of Computer Science and Software, Zhejiang University</strong>
-                <br> 2025.07 - 
-                <br> <strong>Incoming M.S. Student</strong>
-                <br> Advisor Prof. <a href="https://person.zju.edu.cn/zhaozhou#:~:text=%E8%B5%B5%E6%B4%B2.%20%E5%8D%9A%E5%A3%AB%20|%20%E6%95%99">Zhou Zhao</a>
-              </td>
+            <br>
+            <td style="padding-left:20px;padding-right:20px;width:20%;vertical-align:middle"><img src="images/ZJU.png", width="100"></td>
+            <td width="90%" valign="center">
+              <strong>College of Computer Science and Software, Zhejiang University</strong>
+              <br> 2025.09 - 
+              <br> <strong>Incoming M.S. Student</strong>
+              <br> Advisor: Prof. <a href="https://person.zju.edu.cn/zhaozhou#:~:text=%E8%B5%B5%E6%B4%B2.%20%E5%8D%9A%E5%A3%AB%20|%20%E6%95%99">Zhou Zhao</a>
+            </td>
           </tr>
-
           <tr>
             <br>
             <td style="padding-left:20px;padding-right:20px;width:20%;vertical-align:middle"><img src="images/PKU.png", width="100"></td>
@@ -258,19 +355,18 @@
               <br> Research Advisor: Prof. <a href="https://zsdonghao.github.io/">Hao Dong</a>
             </td>
           </tr>
-
           <tr>
             <br>
             <td style="padding-left:20px;padding-right:20px;width:20%;vertical-align:middle"><img src="images/TJUT.jpg", width="100"></td>
             <td width="90%" valign="center">
-              <strong>School of Computer Science and Engineering</a>, Tianjin University of Technology(TJUT)</strong>
+              <strong>School of Computer Science and Engineering, Tianjin University of Technology(TJUT)</strong>
               <br> 2021.09 - Present
-              <br> <strong>Undergraduate Student</strong>
               <br> GPA Ranking: <strong>1</strong>/576
-              <br> Research Advisor: Prof. <a href="https://scholar.google.com/citations?hl=zh-CN&user=JWVYDzAAAAAJ" target="_blank">Jianhua Zhang</a>
-              <br> Academic Advisor: Prof. <a href="" target="_blank">Xu Cheng</a>. 
+              <br> Research Advisor: Prof. <a href="https://scholar.google.com/citations?hl=zh-CN&user=JWVYDzAAAAAJ" target="_blank">Jianhua Zhang</a> 
+              <br> Academic Advisor: Prof. <a href="https://scholar.google.com/citations?hl=zh-CN&user=MjxvqBcAAAAJ" target="_blank">Xu Cheng</a> 
             </td>
-        </tr>
+          </tr>
+
         </tbody></table>
 
         <!-- <table style="width:90%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
